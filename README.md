@@ -24,7 +24,17 @@ A full-stack real-time application combining **Vue.js** frontend, **Node.js** ba
 ```bash
 git clone <your-repo>
 cd kafka-vue
-make install  # or manually install dependencies
+```
+
+**Option A: Using Make (recommended)**
+```bash
+make install
+```
+
+**Option B: Manual installation**
+```bash
+cd backend && npm install
+cd ../frontend && npm install
 ```
 
 ### 2. Start Kafka
@@ -197,25 +207,30 @@ Then check Kafka UI to see your messages in the topics.
 
 ## 🔄 Development Workflow
 
-### 1. Start Infrastructure
+### 1. Install Dependencies
+```bash
+make install     # Install backend and frontend dependencies
+```
+
+### 2. Start Infrastructure
 ```bash
 make kafka-up    # Start Kafka
 ```
 
-### 2. Start Applications
+### 3. Start Applications
 ```bash
 make backend      # Terminal 1
 make frontend     # Terminal 2
 make producer     # Terminal 3 (optional - for CLI testing)
 ```
 
-### 3. Develop
+### 4. Develop
 - Backend auto-reloads on TypeScript changes
 - Frontend hot-reloads on Vue component changes
 - WebSocket connections maintain state
 - Producer CLI for real-time message testing
 
-### 4. Monitor & Test
+### 5. Monitor & Test
 - Check service status: `make status`
 - View Kafka messages: Kafka UI at http://localhost:8080
 - Send test messages: Producer CLI (`make producer`)
