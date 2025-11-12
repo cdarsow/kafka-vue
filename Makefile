@@ -1,7 +1,8 @@
-.PHONY: help kafka-up kafka-down kafka-restart kafka-logs kafka-ui backend frontend dev clean
+.PHONY: help install kafka-up kafka-down kafka-restart kafka-logs kafka-ui backend frontend producer dev clean status
 
 help:
 	@echo "Available commands:"
+	@echo "  install       - Install dependencies for backend and frontend"
 	@echo "  kafka-up      - Start Kafka cluster (Zookeeper, Kafka, Kafka UI)"
 	@echo "  kafka-down    - Stop Kafka cluster"
 	@echo "  kafka-restart - Restart Kafka cluster"
@@ -13,6 +14,15 @@ help:
 	@echo "  dev           - Start both backend and frontend"
 	@echo "  clean         - Clean up Docker volumes and containers"
 	@echo "  status        - Show status of all services"
+
+## Install dependencies
+install:
+	@echo "📦 Installing dependencies..."
+	@echo "Installing backend dependencies..."
+	cd backend && npm install
+	@echo "Installing frontend dependencies..."
+	cd frontend && npm install
+	@echo "✅ All dependencies installed successfully!"
 
 ## Kafka cluster management
 kafka-up:
