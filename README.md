@@ -67,6 +67,7 @@ cd frontend && npm run dev
 
 ```bash
 make help           # Show all available commands
+make install        # Install dependencies for backend and frontend
 make kafka-up       # Start Kafka (Zookeeper, Kafka, Kafka UI)
 make kafka-down     # Stop Kafka
 make kafka-ui       # Open Kafka UI in browser
