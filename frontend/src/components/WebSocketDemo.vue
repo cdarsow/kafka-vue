@@ -382,6 +382,7 @@ onUnmounted(() => {
   margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
+  color: #000000;
 }
 
 .empty-state {
