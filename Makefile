@@ -3,7 +3,7 @@
 help:
 	@echo "Available commands:"
 	@echo "  install       - Install dependencies for backend and frontend"
-	@echo "  kafka-up      - Start Kafka cluster (Zookeeper, Kafka, Kafka UI)"
+	@echo "  kafka-up      - Start Kafka cluster (KRaft mode, Kafka UI)"
 	@echo "  kafka-down    - Stop Kafka cluster"
 	@echo "  kafka-restart - Restart Kafka cluster"
 	@echo "  kafka-logs    - Show Kafka logs"
@@ -26,11 +26,12 @@ install:
 
 ## Kafka cluster management
 kafka-up:
-	@echo "🚀 Starting Kafka cluster..."
+	@echo "🚀 Starting Kafka cluster (KRaft mode)..."
 	docker-compose up -d
 	@echo "✅ Kafka cluster is starting up!"
 	@echo "📊 Kafka UI will be available at: http://localhost:8080"
 	@echo "🔗 Kafka broker at: localhost:9092"
+	@echo "🎉 Running without Zookeeper - KRaft mode enabled!"
 
 kafka-down:
 	@echo "🛑 Stopping Kafka cluster..."

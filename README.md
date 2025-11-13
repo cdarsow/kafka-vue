@@ -78,7 +78,7 @@ cd frontend && npm run dev
 ```bash
 make help           # Show all available commands
 make install        # Install dependencies for backend and frontend
-make kafka-up       # Start Kafka (Zookeeper, Kafka, Kafka UI)
+make kafka-up       # Start Kafka (KRaft mode, Kafka UI)
 make kafka-down     # Stop Kafka
 make kafka-ui       # Open Kafka UI in browser
 make backend        # Start backend server
@@ -106,7 +106,7 @@ kafka-vue/
 │   │   └── views/
 │   │       └── WebSocketView.vue
 │   └── package.json
-├── docker-compose.yml       # Kafka setup (Zookeeper, Kafka, Kafka UI)
+├── docker-compose.yml       # Kafka setup (KRaft mode, Kafka UI)
 ├── Makefile                 # Development commands
 └── README.md
 ```
@@ -114,8 +114,7 @@ kafka-vue/
 ## 🔧 Kafka Integration
 
 ### Docker Setup
-- **Zookeeper** - Kafka coordination service
-- **Kafka Broker** - Message streaming platform
+- **Kafka Broker (KRaft mode)** - Message streaming platform with built-in consensus
 - **Kafka UI** - Web interface for management
 
 ### 📝 Command Line Producer
@@ -240,9 +239,14 @@ make producer     # Terminal 3 (optional - for CLI testing)
 
 ### Setup (`docker-compose.yml`)
 Includes:
-- Zookeeper
-- Kafka Broker
-- Kafka UI
+- **Kafka Broker (KRaft mode)** - Modern Kafka without Zookeeper dependency
+- **Kafka UI** - Web-based management interface
+
+### KRaft Mode Benefits
+- ✅ **Simplified architecture** - No separate Zookeeper cluster needed
+- ✅ **Faster startup** - Reduced complexity and dependencies  
+- ✅ **Better scalability** - Native Kafka consensus protocol
+- ✅ **Lower resource usage** - Fewer containers and processes
 
 ## 🔧 Configuration
 
